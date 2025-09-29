@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  
+    body {
+      line-height: 1.6;
+      background: #f9fafc;
+      color: #333;
+    }
+  
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.2s;
+    }
+  
+    nav a:hover {
+      color: #ffcc00;
+      transform: scale(1.1);
+    }
+  
+    /* Hero Section */
+    header {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, #667eea, #764ba2);
+      color: white;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    header h1 {
+      font-size: 3.2rem;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease;
+    }
+  
+    header p {
+      font-size: 1.3rem;
+      opacity: 0.9;
+    }
+  
+    /* Sections */
+    section {
+      padding: 70px 20px;
+      text-align: center;
+    }
+  
+    #about, #academics, #skills, #projects, #contact {
+      background: #fff;
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 900px;
+      padding: 50px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+  
+    #about:hover, #academics:hover, #skills:hover, #projects:hover, #contact:hover {
+      transform: translateY(-5px);
+    }
+  
+    #about img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      object-fit: cover;
+      border: 4px solid #667eea;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  
+    /* Academics Timeline */
+    #academics div {
+      position: relative;
+      margin: 20px auto;
+      padding: 20px;
+      border-left: 4px solid #667eea;
+      text-align: left;
+      max-width: 600px;
+      background: #f4f6ff;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  
+    #academics div h3 {
+      color: #2a5298;
+      margin-bottom: 5px;
+    }
+  
+    /* Skills */
+    #skills ul {
+      list-style: none;
+      padding: 0;
+    }
+  
+    #skills li {
+      display: inline-block;
+      background: linear-gradient(90deg, #36d1dc, #5b86e5);
+      color: white;
+      padding: 12px 18px;
+      margin: 8px;
+      border-radius: 25px;
+      font-weight: bold;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      transition: transform 0.3s;
+    }
+  
+    #skills li:hover {
+      transform: scale(1.1);
+    }
+  
+    /* Projects */
+    #projects .project {
+      margin: 20px 0;
+      padding: 20px;
+      background: #eef2f7;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+  
+    #projects .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+  
+    /* Contact Form */
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      transition: border 0.3s;
+    }
+  
+    form input:focus, form textarea:focus {
+      border: 1px solid #667eea;
+      outline: none;
+    }
+  
+    form button {
+      padding: 12px 25px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+  
+    form button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #5b86e5, #36d1dc);
+    }
+  
+    html {
+      scroll-behavior: smooth;
+    }
+  
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header a {
+  color: #ffcc00;            /* Golden color */
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+header a:hover {
+  color: #fff;               /* White on hover */
+  text-decoration: underline;
+}
+
+/* Navbar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  padding: 1rem 0;
+  text-align: center;
+  z-index: 1000;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 3px;
+  background: #ffcc00;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+
+
+  </style>
+  
+
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#academics">Academics</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home">
+    <h1>Hello, I'm Anurag Biswas</h1>
+    <p>
+      Mail: <a href="mailto:anurag4499.red@gmail.com">anurag4499.red@gmail.com</a> | 
+      Contact No: <a href="tel:+917074283542">7074283542</a> | 
+    </p>
+    <p>
+      Github: <a href="https://github.com/AnuragBiswas9653" target="_blank">github.com/AnuragBiswas9653</a>
+    </p>
+    <p>Full Stack Developer | Computer Science Engineer | Graduate 2025</p>
+  </header>
+  
+
+  <!-- About Section -->
+  <section id="about">
+    <img src="/web/Anurag picture .jpg" alt="My Photo">
+    <h2>About Me</h2>
+    <p>I am a recent graduate in Computer Science and Engineering from Techno India University, West Bengal, with a CGPA of 8.04 (2025 pass out). I am passionate about technology, problem-solving, and building innovative solutions through programming and web development.</p>
+  </section>
+
+  <!-- Academics Section -->
+  <section id="academics">
+    <h2>Academics</h2>
+  
+    <div>
+      <h3>B.Tech in Computer Science and Engineering</h3>
+      <p><strong>University:</strong> Techno India University, West Bengal</p>
+      <p><strong>CGPA:</strong> 8.04</p>
+      <p><strong>Graduated:</strong> 2025</p>
+    </div>
+    <hr>
+  
+    <div>
+      <h3>Class 12 (CBSE)</h3>
+      <p><strong>School:</strong> Burdwan Model School</p>
+      <p><strong>Percentage:</strong> 69.4%</p>
+      <p><strong>Year of Completion:</strong> 2020</p>
+    </div>
+    <hr>
+  
+    <div>
+      <h3>Class 10 (ICSE)</h3>
+      <p><strong>School:</strong> St. Micheal`s School</p>
+      <p><strong>Percentage:</strong> 71.4%</p>
+      <p><strong>Year of Completion:</strong> 2018</p>
+    </div>
+  </section>
+  
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JAVA</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>Python</li>
+      <li>SQL</li>
+      <li>Oracle DB</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project">
+      <h3>Project 1</h3>
+      <p>Description of your first project.</p>
+    </div>
+    <div class="project">
+      <h3>Project 2</h3>
+      <p>Description of your second project.</p>
+    </div>
+    <div class="project">
+      <h3>Project 3</h3>
+      <p>Description of your third project.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="msg"></p>
+  </section>
+
+  <script>
+    // Form Submission JS
+    const form = document.getElementById('contactForm');
+    const msg = document.getElementById('msg');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      msg.innerText = "Thank you! Your message has been sent.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
